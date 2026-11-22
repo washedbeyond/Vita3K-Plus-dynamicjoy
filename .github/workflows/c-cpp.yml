@@ -295,14 +295,14 @@ jobs:
           path: ${{ env.ARTIFACT_DIR }}
 
   create-release:
-    needs: [desktop-build, android-build]
+    needs: [android-build]
     runs-on: ubuntu-latest
     concurrency:
       group: create-release
       cancel-in-progress: false
     if: |
-      github.ref == 'refs/heads/master' &&
-      github.repository == 'Vita3K/Vita3K'
+  github.ref == 'refs/heads/master' &&
+  github.repository == 'washedbeyond/Vita3K-Plus-dynamicjoy'
     steps:
       - uses: actions/checkout@v6
         with:
